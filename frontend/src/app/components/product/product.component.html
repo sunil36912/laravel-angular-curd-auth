@@ -1,0 +1,84 @@
+<div class="row justify-content-center mt-5">
+  <div class="col-md-6">
+    <div class="card">
+      <div @transform class="card-header text-center">Product</div>
+
+
+      <br />
+      <div class="card-body">
+
+        <form method="POST" #productForm=ngForm (ngSubmit)="onSubmit()">
+
+          <input type="hidden" name="id" [(ngModel)]="Jarwis.formData.id" />
+          <div class="form-group row">
+            <label for="inputName3" class="col-sm-2 col-form-label">Name</label>
+            <div class="col-sm-10">
+              <input type="text" name="product_name" class="form-control" id="inputname3" placeholder="Product Name"
+                @fadeInOut [(ngModel)]="Jarwis.formData.product_name" required>
+
+
+              <span class="text-danger" @fadeInOut [hidden]="!errors.product_name">{{errors.product_name}}</span>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label"> Price</label>
+            <div class="col-sm-10">
+              <input type="text" name="product_price" class="form-control" @fadeInOut id="inputproduct_price3"
+                placeholder="Product price" [(ngModel)]="Jarwis.formData.product_price" required>
+
+
+              <span class="text-danger" @fadeInOut [hidden]="!errors.product_price">{{errors.product_price}}</span>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="inputPasswordConfirmation3" class="col-sm-2 col-form-label"> Stock</label>
+            <div class="col-sm-10">
+              <input type="text" name="product_stock" class="form-control" @fadeInOut id="inputPasswordConfirmation3"
+                placeholder="Product Stock" [(ngModel)]="Jarwis.formData.product_stock" required>
+
+
+              <span @fadeInOut class="text-danger" [hidden]="!errors.product_stock">{{errors.product_stock}}</span>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Discount </label>
+            <div class="col-sm-10">
+              <input type="text" @fadeInOut name="product_discount" class="form-control" id="inputPassword3"
+                placeholder="Product Discount" [(ngModel)]="Jarwis.formData.product_discount" required>
+
+              <span @fadeInOut class="text-danger"
+                [hidden]="!errors.product_discount">{{errors.product_discount}}</span>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Summary </label>
+            <div class="col-sm-10">
+              <input @fadeInOut type="text" name="product_summary" class="form-control" id="inputPassword3"
+                placeholder="Product Summary" [(ngModel)]="Jarwis.formData.product_summary" required>
+
+              <span @fadeInOut class="text-danger" [hidden]="!errors.product_summary">{{errors.product_summary}}</span>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-sm-10 offset-2">
+
+              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="button" (click)="reset()" class="btn btn-info ml-4">Reset</button>
+
+
+
+
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-5">
+    <app-all-products></app-all-products>
+  </div>

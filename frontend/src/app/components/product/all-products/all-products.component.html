@@ -1,0 +1,45 @@
+<div style="text-align:center">
+
+
+  <table *ngIf="jarwis.loading" datatable class="table table-hover">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Cost</th>
+        <th>Discout</th>
+        <th>Stock</th>
+        <th>Actions</th>
+        {{ jarwis.list}}
+
+      </tr>
+    </thead>
+    <tbody>
+
+      <div *ngIf="jarwis.loading" class="fa-3x">
+        <i class="fas fa-spinner fa-spin"></i>
+
+      </div>
+
+      <tr *ngFor="let product of  this.jarwis.list " [@slideInOut]>
+        <td (click)="populateForm(product)">{{ product.product_name }}</td>
+        <td (click)="populateForm(product)">{{ product.product_price }}</td>
+        <td (click)="populateForm(product)">{{ product.product_discount }}</td>
+        <td (click)="populateForm(product)">{{ product.product_stock }}</td>
+        <td (click)="productDelete(product.id)"><button type="button" class="btn btn-outline-danger text-dark"><i
+              class='fa fa-trash'></i></button></td>
+        <td>|</td>
+        <td><button (click)="populateForm(product)" type="button" class="btn btn-outline-warning text-dark"><i
+              class='far fa-edit'></i></button>
+        </td>
+
+
+
+      </tr>
+
+
+
+
+    </tbody>
+  </table>
+
+</div>
